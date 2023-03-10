@@ -8,7 +8,7 @@ const Character = db.define('character', {
     allowNull: false,
   },
   class: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
   },
   race: {
     type: Sequelize.STRING,
