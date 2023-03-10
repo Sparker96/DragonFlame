@@ -20,14 +20,14 @@ const Router = ({}) => {
     <div>
       {user ? (
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="*" element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='*' element={<Home />} />
         </Routes>
       ) : (
         <Routes>
-          <Route exact path="/login" element={<AuthForm mode="login" />} />
-          <Route exact path="/signup" element={<AuthForm mode="signup" />} />
-          <Route path="*" element={<AuthForm mode="login" />} />
+          <Route exact path='/login' element={<AuthForm mode='login' />} />
+          <Route exact path='/signup' element={<AuthForm mode='signup' />} />
+          <Route path='*' element={<AuthForm mode='login' />} />
         </Routes>
       )}
     </div>
