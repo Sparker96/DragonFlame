@@ -9,14 +9,16 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   return (
-    <div>
-      <h1>FS-App-Template</h1>
+    <>
       <nav>
         {user ? (
-          <div>
+          <>
             {/* The navbar will show these links after you log in */}
-            <Link to='/home'>Home</Link>
-            <a
+            <div className='buttonContainer'>
+              <Link to='/home'>Home</Link>
+            </div>
+            <Link
+              className='logout'
               onClick={() => {
                 dispatch(setUser(null));
                 removeUserToken();
@@ -24,18 +26,24 @@ const Navbar = () => {
               }}
             >
               Logout
-            </a>
-          </div>
+            </Link>
+          </>
         ) : (
-          <div>
+          <>
             {/* The navbar will show these links before you log in */}
-            <Link to='/login'>Login</Link>
-            <Link to='/signup'>Sign Up</Link>
-          </div>
+            <div className='buttonContainer'>
+              <Link to='/login' className='login'>
+                Login
+              </Link>
+              <Link to='/signup' className='signup'>
+                Sign Up
+              </Link>
+            </div>
+          </>
         )}
       </nav>
       <hr />
-    </div>
+    </>
   );
 };
 
