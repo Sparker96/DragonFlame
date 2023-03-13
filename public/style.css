@@ -112,9 +112,28 @@ nav a:visited:hover {
 .charContainer ul {
   flex: 0;
   list-style: none;
+  padding-left: 0;
 }
 
 /* ^^^^^^^^^^^ Character ^^^^^^^^^^^ */
+
+.monsterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: rgb(46, 44, 44);
+  width: 300px;
+  height: 600px;
+}
+
+.monsterContainer ul {
+  flex: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+/* ^^^^^^^^^^^ Monster ^^^^^^^^^^^ */
 
 .battleScreen h3 {
   text-align: center;
@@ -123,10 +142,10 @@ nav a:visited:hover {
 .battleContainer {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .battleContainer button {
-  margin-top: 30%;
   height: 50px;
 }
 

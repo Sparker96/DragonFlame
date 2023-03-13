@@ -5,15 +5,29 @@ import { setCharacter } from '../store';
 
 const Character = ({ currCharacter }) => {
   const [character, setCharacter] = useState(currCharacter);
-  console.log(character)
 
   return (
     <div className='charContainer' id='char'>
-      <ul className='charInfo'>
-        <li>{character.name}</li>
-        <li>{character.race}</li>
-        <li>{character.class}</li>
-      </ul>
+      <div>
+        <h4 style={{ textAlign: 'center' }}>Bio</h4>
+        <ul className='charInfo'>
+          <li>{character.name}</li>
+          <li>{character.race}</li>
+          <li>{character.class}</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style={{ textAlign: 'center' }}>Stats</h4>
+        <ul className='charStats'>
+          <li>Strength: {character.strength}</li>
+          <li>Intellect: {character.intellect}</li>
+          <li>Dexterity: {character.dexterity}</li>
+          <li>Vitality: {character.vitality}</li>
+          <li>Charisma: {character.charisma}</li>
+          <li>Health: {character.health}</li>
+          <li>Armor: {character.armor}</li>
+        </ul>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Character },
+  models: { User, Character, Monster },
 } = require('../server/db');
 
 /**
@@ -18,6 +18,8 @@ async function seed() {
     User.create({ username: 'cody', password: '123' }),
     User.create({ username: 'murphy', password: '123' }),
   ]);
+
+   // Creating Characters
 
   const characters = await Promise.all([
     Character.create({
@@ -61,8 +63,50 @@ async function seed() {
     }),
   ]);
 
+     // Creating Monsters
+
+     const monsters = await Promise.all([
+      Monster.create({
+        name: 'meanBig',
+        class: 'monster',
+        race: 'ogre',
+        strength: 20,
+        intellect: 10,
+        dexterity: 10,
+        vitality: 10,
+        charisma: 10,
+        health: 10,
+        armor: 10,
+      }),
+      Monster.create({
+        name: 'meanWiz',
+        class: 'wizard',
+        race: 'human',
+        strength: 10,
+        intellect: 20,
+        dexterity: 10,
+        vitality: 10,
+        charisma: 10,
+        health: 10,
+        armor: 10,
+      }),
+      Monster.create({
+        name: 'baddyThief',
+        class: 'thief',
+        race: 'human',
+        strength: 10,
+        intellect: 10,
+        dexterity: 20,
+        vitality: 10,
+        charisma: 10,
+        health: 10,
+        armor: 10,
+      }),
+    ]);
+
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${characters.length} characters`);
+  console.log(`seeded ${monsters.length} characters`);
   console.log(`seeded successfully`);
   return {
     users: {

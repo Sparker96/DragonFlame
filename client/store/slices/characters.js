@@ -29,7 +29,6 @@ const characters = createSlice({
   reducers: {
     setCharacter: (state, { payload: character }) => {
       state.single = character;
-      console.log( state.single);
     },
   },
   extraReducers: (builder) => {
@@ -51,7 +50,6 @@ export const selectCharacters = (state) => {
 };
 
 export const selectCharacter = (state) => {
-  console.log(state.characters.single);
   return state.characters.single;
 };
 
