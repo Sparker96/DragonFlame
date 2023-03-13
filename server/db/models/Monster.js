@@ -33,7 +33,11 @@ const Monster = db.define('monster', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  health: {
+  healthCurrent: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  healthTotal: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },

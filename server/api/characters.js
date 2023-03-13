@@ -19,7 +19,8 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   let newCharacter = req.body.character;
-  newCharacter.health = newCharacter.vitality*10;
+  newCharacter.healthTotal = newCharacter.vitality*10;
+  newCharacter.healthCurrent = newCharacter.healthTotal;
   newCharacter.armor = newCharacter.dexterity;
   try {
     const character = await Character.create(newCharacter);

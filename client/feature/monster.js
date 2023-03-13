@@ -6,8 +6,14 @@ import { selectMonster, fetchMonster } from '../store';
 const Monster = () => {
   const dispatch = useDispatch();
 
+  function randomInt(min = 1, max = 3) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+  }
+
   useEffect(() => {
-    dispatch(fetchMonster(1));
+    dispatch(fetchMonster(randomInt()));
   }, [dispatch]);
 
   let monster = useSelector(selectMonster);
@@ -30,7 +36,9 @@ const Monster = () => {
           <li>Dexterity: {monster.dexterity}</li>
           <li>Vitality: {monster.vitality}</li>
           <li>Charisma: {monster.charisma}</li>
-          <li>Health: {monster.health}</li>
+          <li>
+            Health: {monster.healthCurrent}/{monster.healthTotal}
+          </li>
           <li>Armor: {monster.armor}</li>
         </ul>
       </div>

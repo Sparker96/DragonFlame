@@ -24,7 +24,9 @@ const Character = ({ currCharacter }) => {
           <li>Dexterity: {character.dexterity}</li>
           <li>Vitality: {character.vitality}</li>
           <li>Charisma: {character.charisma}</li>
-          <li>Health: {character.health}</li>
+          <li>
+            Health: {character.healthCurrent}/{character.healthTotal}
+          </li>
           <li>Armor: {character.armor}</li>
         </ul>
       </div>

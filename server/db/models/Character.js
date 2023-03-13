@@ -33,7 +33,11 @@ const Character = db.define('character', {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  health: {
+  healthCurrent: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  healthTotal: {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
