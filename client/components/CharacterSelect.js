@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { fetchCharacters, selectCharacters } from '../store/slices/characters';
+import {
+  fetchCharacters,
+  selectCharacters,
+  deleteCharacter,
+} from '../store/slices/characters';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCharacter } from '../store';
 import Character from '../feature/character';
@@ -40,13 +44,22 @@ const CharacterSelect = () => {
             );
           } else {
             return (
-              <div
-                onClick={() => {
-                  dispatch(setCharacter(character));
-                  navigate('/dungeon');
-                }}
-              >
-                <Character menuCharacter={character} />
+              <div>
+                <div
+                  onClick={() => {
+                    dispatch(setCharacter(character));
+                    navigate('/dungeon');
+                  }}
+                >
+                  <Character menuCharacter={character} />
+                </div>
+                <button
+                  onClick={() => {
+                    dispatch(deleteCharacter(character.id));
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             );
           }

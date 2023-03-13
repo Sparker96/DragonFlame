@@ -5,6 +5,7 @@ body {
 }
 
 a {
+  color: white;
   text-decoration: none;
 }
 
@@ -48,6 +49,13 @@ nav a:visited:hover {
 }
 
 /* ^^^^^^^^^^^ NAVBAR ^^^^^^^^^^^ */
+.auth form {
+  text-align: center;
+}
+
+.auth input {
+  text-align: center;
+}
 
 .auth label {
   display: block;
@@ -55,13 +63,22 @@ nav a:visited:hover {
 
 .auth form div {
   margin: 1em;
-  display: inline-block;
+  display: block;
 }
 
 /* ^^^^^^^^^^^ Login/SignUp Form ^^^^^^^^^^^ */
 
 .charSelect h3 {
   text-align: center;
+}
+
+.charSelect button {
+  background-color: brown;
+  width: 100%;
+}
+
+.charSelect .charContainer:hover {
+  background-color: rgb(28, 26, 26);
 }
 
 .charSelect #chars {
@@ -79,6 +96,14 @@ nav a:visited:hover {
   width: 300px;
   height: 600px;
   line-height: 600px;
+}
+
+#newChar:hover {
+  background-color: rgb(28, 26, 26);
+}
+
+#newChar a{
+  color: white;
 }
 
 /* ^^^^^^^^^^^ Character Select ^^^^^^^^^^^ */

@@ -23,6 +23,16 @@ export const createCharacter = createAsyncThunk(
   }
 );
 
+export const deleteCharacter = createAsyncThunk(
+  'deleteCharacter',
+  async (id) => {
+    const { data } = await axios.delete('/api/characters', {
+      data: { id: id },
+    });
+    return {id, data};
+  }
+);
+
 const characters = createSlice({
   name: 'characters',
   initialState,
@@ -40,6 +50,11 @@ const characters = createSlice({
     });
     builder.addCase(createCharacter.fulfilled, (state, action) => {
       state.all.push(action.payload);
+    });
+    builder.addCase(deleteCharacter.fulfilled, (state, { payload }) => {
+      console.log(payload)
+      console.log(state.all.filter((character) => character.id !== payload.id))
+      state.all = state.all.filter((character) => character.id !== payload.id);
     });
   },
 });

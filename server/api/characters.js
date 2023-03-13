@@ -19,12 +19,21 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   let newCharacter = req.body.character;
-  newCharacter.healthTotal = newCharacter.vitality*10;
+  newCharacter.healthTotal = newCharacter.vitality * 10;
   newCharacter.healthCurrent = newCharacter.healthTotal;
   newCharacter.armor = newCharacter.dexterity;
   try {
     const character = await Character.create(newCharacter);
     res.json(character);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/', async (req, res, next) => {
+  try {
+    const character = await Character.findByPk(req.body.id);
+    res.status(200).send(await character.destroy());
   } catch (err) {
     next(err);
   }

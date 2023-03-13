@@ -86,6 +86,7 @@ const CharacterCreate = () => {
             <option value='elf'>Elf</option>
           </select>
         </div>
+        <div>Stat Points Remaining: {statPoints}</div>
         <div className='stat'>
           <label htmlFor='strength'>
             <small>Strength</small>
