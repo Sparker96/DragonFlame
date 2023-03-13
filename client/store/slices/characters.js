@@ -3,15 +3,25 @@ import axios from 'axios';
 
 const initialState = [];
 
-export const fetchCharacters = createAsyncThunk('fetchCharacters', async (userId) => {
-  const { data } = await axios.get('/api/characters', userId);
-  return data;
-});
+export const fetchCharacters = createAsyncThunk(
+  'fetchCharacters',
+  async (userId) => {
+    const { data } = await axios.get('/api/characters', {
+      params: {
+        userId: userId,
+      },
+    });
+    return data;
+  }
+);
 
-export const createCharacter = createAsyncThunk('createNewCharacter', async ({userId, newChar}) => {
-  const { data } = await axios.post('/api/me', {userId, newChar});
-  return data;
-});
+export const createCharacter = createAsyncThunk(
+  'createNewCharacter',
+  async ({ character }) => {
+    const { data } = await axios.post('/api/characters', { character });
+    return data;
+  }
+);
 
 const characters = createSlice({
   name: 'characters',

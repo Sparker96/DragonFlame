@@ -8,8 +8,8 @@ const store = configureStore({
     auth: auth,
     characters: characters,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(createLogger()),
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware().concat(createLogger()),
 });
 
 export default store;

@@ -6,13 +6,15 @@ import {
   selectCharacters,
 } from '../store/slices/characters';
 import { useDispatch, useSelector } from 'react-redux';
+import CharacterCreate from './CharacterCreate';
 
 const CharacterSelect = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
-    dispatch(fetchCharacters());
+    dispatch(fetchCharacters(user.id));
   }, [dispatch]);
 
   let characters = useSelector(selectCharacters);
@@ -33,16 +35,13 @@ const CharacterSelect = () => {
       <h3>Where does the adventure begin?</h3>
       <div id='chars'>
         {charArr.map((character) => {
-          console.log(character);
           if (Object.keys(character).length === 0) {
             return (
-              <div
-                className='charContainer'
-                id='newChar'
-                onClick={createCharacter}
-              >
-                New Character
-              </div>
+              <Link to='/character-create'>
+                <div className='charContainer' id='newChar'>
+                  New Character
+                </div>
+              </Link>
             );
           } else {
             return (

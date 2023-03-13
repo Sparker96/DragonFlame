@@ -29,7 +29,7 @@ const AuthForm = ({ mode }) => {
   if (!mode) return null;
 
   return (
-    <div>
+    <div className='auth'>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="username">
