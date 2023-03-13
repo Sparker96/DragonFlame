@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectMonster, fetchMonster } from '../store';
+import { selectMonster } from '../store';
 
 const Monster = () => {
-  const dispatch = useDispatch();
-
-  function randomInt(min = 1, max = 3) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-  }
-
-  useEffect(() => {
-    dispatch(fetchMonster(randomInt()));
-  }, [dispatch]);
-
   let monster = useSelector(selectMonster);
 
   return (

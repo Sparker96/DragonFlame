@@ -21,7 +21,12 @@ export const fetchMonster = createAsyncThunk(
 const monsters = createSlice({
   name: 'monsters',
   initialState,
-  reducers: {},
+  reducers: {
+    setMonsterHealth: (state, { payload: newHealth }) => {
+      state.single.healthCurrent = newHealth;
+      console.log(state.single.healthCurrent);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchMonsters.fulfilled, (state, action) => {
       state.all = action.payload;
@@ -31,6 +36,11 @@ const monsters = createSlice({
     });
   },
 });
+
+const { setMonsterHealth } = monsters.actions;
+
+export { setMonsterHealth };
+
 
 export const selectMonsters = (state) => {
   return state.monsters.all;

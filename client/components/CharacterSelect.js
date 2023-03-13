@@ -46,7 +46,7 @@ const CharacterSelect = () => {
                   navigate('/dungeon');
                 }}
               >
-                <Character currCharacter={character} />
+                <Character menuCharacter={character} />
               </div>
             );
           }
