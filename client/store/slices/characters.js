@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = [];
+const initialState = { all: [], single: {} };
 
 export const fetchCharacters = createAsyncThunk(
   'fetchCharacters',
@@ -26,19 +26,33 @@ export const createCharacter = createAsyncThunk(
 const characters = createSlice({
   name: 'characters',
   initialState,
-  reducers: {},
+  reducers: {
+    setCharacter: (state, { payload: character }) => {
+      state.single = character;
+      console.log( state.single);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCharacters.fulfilled, (state, action) => {
-      return action.payload;
+      state.all = action.payload;
     });
     builder.addCase(createCharacter.fulfilled, (state, action) => {
-      state.push(action.payload);
+      state.all.push(action.payload);
     });
   },
 });
 
+const { setCharacter } = characters.actions;
+
+export { setCharacter };
+
 export const selectCharacters = (state) => {
-  return state.characters;
+  return state.characters.all;
+};
+
+export const selectCharacter = (state) => {
+  console.log(state.characters.single);
+  return state.characters.single;
 };
 
 export default characters.reducer;

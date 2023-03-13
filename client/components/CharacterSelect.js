@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import {
-  fetchCharacters,
-  createCharacter,
-  selectCharacters,
-} from '../store/slices/characters';
+import { fetchCharacters, selectCharacters } from '../store/slices/characters';
 import { useDispatch, useSelector } from 'react-redux';
-import CharacterCreate from './CharacterCreate';
+import { setCharacter } from '../store';
+import Character from '../feature/character';
 
 const CharacterSelect = () => {
   const dispatch = useDispatch();
@@ -38,25 +35,18 @@ const CharacterSelect = () => {
           if (Object.keys(character).length === 0) {
             return (
               <Link to='/character-create'>
-                <div className='charContainer' id='newChar'>
-                  New Character
-                </div>
+                <div id='newChar'>New Character</div>
               </Link>
             );
           } else {
             return (
               <div
-                className='charContainer'
-                id='char'
-                onClick={() =>
-                  navigate('/dungeon', {
-                    state: {
-                      character: character,
-                    },
-                  })
-                }
+                onClick={() => {
+                  dispatch(setCharacter(character));
+                  navigate('/dungeon');
+                }}
               >
-                {character.name}
+                <Character currCharacter={character} />
               </div>
             );
           }

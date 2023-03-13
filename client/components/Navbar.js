@@ -15,7 +15,7 @@ const Navbar = () => {
           <>
             {/* The navbar will show these links after you log in */}
             <div className='buttonContainer'>
-            <Link to='/character-select'>Temp</Link>
+            <Link to='/character-select'>Character Select</Link>
             </div>
             <Link
               className='logout'

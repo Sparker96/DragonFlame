@@ -71,17 +71,15 @@ nav a:visited:hover {
   row-gap: 30px;
 }
 
-.charSelect .charContainer {
+#newChar {
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
   background-color: rgb(46, 44, 44);
   width: 300px;
   height: 600px;
-}
-
-#newChar {
   line-height: 600px;
 }
-
 
 /* ^^^^^^^^^^^ Character Select ^^^^^^^^^^^ */
 
@@ -94,12 +92,42 @@ nav a:visited:hover {
   display: inline-block;
 }
 
-
 .charCreate form .stat {
   margin: 1em;
   display: block;
 }
 
-
-
 /* ^^^^^^^^^^^ Character Create ^^^^^^^^^^^ */
+
+.charContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: rgb(46, 44, 44);
+  width: 300px;
+  height: 600px;
+}
+
+.charContainer ul {
+  flex: 0;
+  list-style: none;
+}
+
+/* ^^^^^^^^^^^ Character ^^^^^^^^^^^ */
+
+.battleScreen h3 {
+  text-align: center;
+}
+
+.battleContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.battleContainer button {
+  margin-top: 30%;
+  height: 50px;
+}
+
+/* ^^^^^^^^^^^ Battle Screen ^^^^^^^^^^^ */

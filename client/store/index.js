@@ -14,3 +14,4 @@ const store = configureStore({
 
 export default store;
 export * from './slices/auth';
+export * from './slices/characters';
