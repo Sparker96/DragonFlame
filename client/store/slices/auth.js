@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { use } from 'chai';
 import { removeUserToken, setUserToken } from '../../utils';
 
 const initialState = { user: null, error: null };

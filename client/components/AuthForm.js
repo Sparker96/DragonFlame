@@ -22,7 +22,7 @@ const AuthForm = ({ mode }) => {
       await dispatch(getUserByToken(getUserToken()));
       setUsername('');
       setPassword('');
-      navigate('/home');
+      navigate('/character-select');
     }
   };
 

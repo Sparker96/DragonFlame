@@ -8,7 +8,6 @@ a {
   text-decoration: none;
 }
 
-
 /* ^^^^^^^^^^^ GENERAL ^^^^^^^^^^^ */
 
 nav {
@@ -24,7 +23,6 @@ nav .buttonContainer {
   gap: 30px;
   padding: 4px;
 }
-
 
 nav .logout {
   background-color: brown;
@@ -61,3 +59,28 @@ form div {
 }
 
 /* ^^^^^^^^^^^ Form ^^^^^^^^^^^ */
+
+.charSelect h3 {
+  text-align: center;
+}
+
+.charSelect #chars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 30px;
+}
+
+.charSelect .charContainer {
+  text-align: center;
+  background-color: rgb(46, 44, 44);
+  width: 300px;
+  height: 600px;
+}
+
+#newChar {
+  line-height: 600px;
+}
+
+
+/* ^^^^^^^^^^^ Character Select ^^^^^^^^^^^ */

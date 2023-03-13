@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { AuthForm } from './components/AuthForm';
-import Home from './components/Home';
+import CharacterSelect from './components/CharacterSelect';
 import { getUserByToken } from './store';
 import { getUserToken, isLoggedIn } from './utils';
 
@@ -20,8 +20,8 @@ const Router = ({}) => {
     <div>
       {user ? (
         <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='*' element={<Home />} />
+          <Route path='/character-select' element={<CharacterSelect />} />
+          <Route path='*' element={<CharacterSelect />} />
         </Routes>
       ) : (
         <Routes>
