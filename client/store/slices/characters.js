@@ -30,6 +30,9 @@ const characters = createSlice({
     setCharacter: (state, { payload: character }) => {
       state.single = character;
     },
+    setCharacterHealth: (state, { payload: newHealth }) => {
+      state.single.healthCurrent = newHealth;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCharacters.fulfilled, (state, action) => {
@@ -41,9 +44,9 @@ const characters = createSlice({
   },
 });
 
-const { setCharacter } = characters.actions;
+const { setCharacter, setCharacterHealth } = characters.actions;
 
-export { setCharacter };
+export { setCharacter, setCharacterHealth };
 
 export const selectCharacters = (state) => {
   return state.characters.all;

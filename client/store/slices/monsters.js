@@ -24,7 +24,6 @@ const monsters = createSlice({
   reducers: {
     setMonsterHealth: (state, { payload: newHealth }) => {
       state.single.healthCurrent = newHealth;
-      console.log(state.single.healthCurrent);
     },
   },
   extraReducers: (builder) => {
@@ -40,7 +39,6 @@ const monsters = createSlice({
 const { setMonsterHealth } = monsters.actions;
 
 export { setMonsterHealth };
-
 
 export const selectMonsters = (state) => {
   return state.monsters.all;

@@ -15,7 +15,7 @@ const Navbar = () => {
           <>
             {/* The navbar will show these links after you log in */}
             <div className='buttonContainer'>
-            <Link to='/character-select'>Character Select</Link>
+              <Link to='/character-select'>Character Select</Link>
             </div>
             <Link
               className='logout'
@@ -32,12 +32,12 @@ const Navbar = () => {
           <>
             {/* The navbar will show these links before you log in */}
             <div className='buttonContainer'>
-            <Link to='/login' className='login'>
-              Login
-            </Link>
-            <Link to='/signup' className='signup'>
-              Sign Up
-            </Link>
+              <Link to='/login' className='login'>
+                Login
+              </Link>
+              <Link to='/signup' className='signup'>
+                Sign Up
+              </Link>
             </div>
           </>
         )}

@@ -5,9 +5,10 @@ import { selectMonster, fetchMonster } from '../store/slices/monsters';
 import { useDispatch, useSelector } from 'react-redux';
 import Character from '../feature/character';
 import Monster from '../feature/monster';
-import { setMonsterHealth } from '../store';
+import { setMonsterHealth, setCharacterHealth } from '../store';
 
 const Dungeon = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   let character = useSelector(selectCharacter);
@@ -24,6 +25,13 @@ const Dungeon = () => {
 
   const swing = () => {
     dispatch(setMonsterHealth(monster.healthCurrent - character.strength));
+    if (monster.healthCurrent - character.strength <= 0) {
+      navigate('/victory');
+    }
+    dispatch(setCharacterHealth(character.healthCurrent - monster.strength));
+    if (character.healthCurrent - monster.strength <= 0) {
+      navigate('/defeat');
+    }
   };
 
   let monster = useSelector(selectMonster);
